@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Culture & History — Trini Tastes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --trini-red: #CE1126;
+    --trini-black: #000000;
+    --trini-white: #FFFFFF;
+    --trini-cream: #FFF8F0;
+    --trini-gold: #E8B547;
+    --trini-green: #2D5016;
+    --trini-coral: #FF6B5B;
+    --ink: #1A0E0A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--trini-cream);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* === NAVIGATION === */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 248, 240, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(206, 17, 38, 0.1);
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 26px;
+    color: var(--trini-black);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--trini-red); font-style: italic; }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    position: relative;
+    transition: color 0.3s;
+  }
+
+  .nav-links a.active { color: var(--trini-red); }
+  .nav-links a:hover { color: var(--trini-red); }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 2px;
+    background: var(--trini-red);
+    transition: width 0.3s;
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a.active::after { width: 100%; }
+
+  /* === HERO === */
+  .page-hero {
+    padding: 160px 48px 80px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 100px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--trini-gold) 0%, transparent 70%);
+    opacity: 0.12;
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  .page-eyebrow {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--trini-black);
+    color: var(--trini-white);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--trini-black);
+    margin-bottom: 28px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--trini-red);
+    font-weight: 400;
+  }
+
+  .page-hero p {
+    font-size: 21px;
+    color: rgba(26, 14, 10, 0.75);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* === STATS BAR === */
+  .stats-bar {
+    background: var(--trini-black);
+    color: var(--trini-white);
+    padding: 48px;
+    margin: 60px 48px;
+    border-radius: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 40px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--trini-gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.8;
+  }
+
+  /* === ORIGINS / INFLUENCES === */
+  .section {
+    padding: 80px 48px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--trini-red);
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--trini-black);
+    margin-bottom: 20px;
+  }
+
+  h2 em { font-style: italic; color: var(--trini-red); font-weight: 400; }
+
+  .section-intro {
+    font-size: 18px;
+    color: rgba(26, 14, 10, 0.7);
+    max-width: 640px;
+    margin-bottom: 60px;
+  }
+
+  .influences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .influence-card {
+    background: var(--trini-white);
+    border-radius: 20px;
+    padding: 36px;
+    border: 1px solid rgba(0,0,0,0.06);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .influence-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
+  .influence-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 60px; height: 60px;
+    background: var(--accent-color, var(--trini-red));
+    opacity: 0.1;
+    border-radius: 0 0 100% 0;
+  }
+
+  .influence-flag {
+    font-size: 40px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .influence-name {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--trini-black);
+    margin-bottom: 6px;
+  }
+
+  .influence-era {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--trini-red);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .influence-desc {
+    color: rgba(26, 14, 10, 0.7);
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .influence-dishes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .dish-tag {
+    background: var(--trini-cream);
+    color: var(--ink);
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  /* === TIMELINE === */
+  .timeline-section {
+    background: var(--trini-black);
+    color: var(--trini-white);
+    padding: 100px 48px;
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .timeline-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg,
+      var(--trini-red) 0% 33%,
+      var(--trini-white) 33% 66%,
+      var(--trini-black) 66% 100%);
+  }
+
+  .timeline-section h2 { color: var(--trini-white); }
+  .timeline-section .section-eyebrow { color: var(--trini-gold); }
+
+  .timeline {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--trini-red), var(--trini-gold), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 80px;
+    margin-bottom: 60px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 8px;
+    width: 18px; height: 18px;
+    background: var(--trini-gold);
+    border-radius: 50%;
+    border: 4px solid var(--trini-black);
+    box-shadow: 0 0 0 2px var(--trini-gold);
+  }
+
+  .timeline-year {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--trini-gold);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .timeline-title {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .timeline-desc {
+    color: rgba(255,255,255,0.75);
+    font-size: 16px;
+    max-width: 640px;
+  }
+
+  /* === FEATURE STORY === */
+  .feature-story {
+    padding: 100px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .feature-visual {
+    background: linear-gradient(135deg, var(--trini-red), var(--trini-gold));
+    border-radius: 24px;
+    aspect-ratio: 4/5;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(206, 17, 38, 0.25);
+  }
+
+  .feature-visual::before {
+    content: '🫓';
+    position: absolute;
+    font-size: 280px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+  }
+
+  .feature-visual::after {
+    content: '"Doubles"';
+    position: absolute;
+    bottom: 32px; left: 32px;
+    color: var(--trini-white);
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  .feature-content blockquote {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--trini-black);
+    margin: 30px 0;
+    padding-left: 24px;
+    border-left: 4px solid var(--trini-red);
+  }
+
+  .feature-content p {
+    color: rgba(26, 14, 10, 0.75);
+    font-size: 17px;
+    margin-bottom: 16px;
+  }
+
+  /* === FESTIVALS === */
+  .festivals-section {
+    padding: 100px 48px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .festivals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+    margin-top: 48px;
+  }
+
+  .festival-card {
+    border-radius: 20px;
+    padding: 40px 32px;
+    color: var(--trini-white);
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s ease;
+  }
+
+  .festival-card:hover { transform: translateY(-6px); }
+
+  .festival-card.carnival {
+    background: linear-gradient(135deg, var(--trini-red), #8B0000);
+  }
+
+  .festival-card.divali {
+    background: linear-gradient(135deg, #B8860B, var(--trini-gold));
+  }
+
+  .festival-card.eid {
+    background: linear-gradient(135deg, var(--trini-green), #1A3009);
+  }
+
+  .festival-card.christmas {
+    background: linear-gradient(135deg, var(--trini-black), #2A2A2A);
+  }
+
+  .festival-icon {
+    font-size: 64px;
+    align-self: flex-start;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));
+  }
+
+  .festival-name {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .festival-foods {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+
+  /* === CTA === */
+  .cta-section {
+    background: var(--trini-cream);
+    padding: 100px 48px;
+    text-align: center;
+  }
+
+  .cta-section h2 { margin-bottom: 24px; }
+
+  .cta-section p {
+    font-size: 18px;
+    color: rgba(26, 14, 10, 0.7);
+    max-width: 520px;
+    margin: 0 auto 40px;
+  }
+
+  .btn {
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary {
+    background: var(--trini-red);
+    color: var(--trini-white);
+    box-shadow: 0 8px 24px rgba(206, 17, 38, 0.3);
+  }
+
+  .btn-primary:hover {
+    background: var(--trini-black);
+    transform: translateY(-2px);
+  }
+
+  /* === FOOTER === */
+  footer {
+    padding: 48px;
+    text-align: center;
+    background: var(--trini-cream);
+    color: rgba(26, 14, 10, 0.6);
+    font-size: 14px;
+  }
+
+  .flag-strip {
+    display: flex;
+    height: 6px;
+    margin-bottom: 32px;
+  }
+
+  .flag-strip > div { flex: 1; }
+  .flag-strip .red { background: var(--trini-red); }
+  .flag-strip .white { background: var(--trini-white); border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+  .flag-strip .black { background: var(--trini-black); }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .page-hero { padding: 120px 20px 60px; }
+    .stats-bar { margin: 40px 20px; padding: 32px 24px; gap: 24px; }
+    .stat-num { font-size: 40px; }
+    .section { padding: 60px 20px; }
+    .timeline-section { padding: 60px 20px; }
+    .feature-story {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 60px 20px;
+    }
+    .festivals-section { padding: 60px 20px; }
+    .cta-section { padding: 60px 20px; }
+    .timeline::before { left: 20px; }
+    .timeline-item { padding-left: 60px; }
+    .timeline-item::before { left: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Trini<span>Tastes</span></a>
+  <ul class="nav-links">
+    <li><a href="/#dishes">Dishes</a></li>
+    <li><a href="/culture.html" class="active">Culture</a></li>
+    <li><a href="/#recipes">Recipes</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="page-eyebrow">Culture & History</div>
+  <h1>A nation seasoned by <em>seven seas</em>.</h1>
+  <p>Trinidad &amp; Tobago's cuisine isn't one tradition — it's an entire world simmered down into one pot. Indigenous Amerindian, West African, South Asian, Chinese, Spanish, French, British, Lebanese — every wave that touched these shores left flavor behind.</p>
+</section>
+
+<div class="stats-bar" id="stats-bar">
+  <div>
+    <div class="stat-num" data-target="7">0</div>
+    <div class="stat-label">Major Cultural Influences</div>
+  </div>
+  <div>
+    <div class="stat-num" data-target="500">0</div>
+    <div class="stat-label">Years of Culinary Fusion</div>
+  </div>
+  <div>
+    <div class="stat-num" data-target="40">0</div>
+    <div class="stat-label">Iconic Local Dishes</div>
+  </div>
+  <div>
+    <div class="stat-num" data-target="2">0</div>
+    <div class="stat-label">Islands, One Flavor</div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-eyebrow">The Influences</div>
+  <h2>Seven cultures, <em>one plate</em></h2>
+  <p class="section-intro">Trini food is what happens when traditions don't just coexist — they cook together. Every dish on the islands carries the fingerprints of multiple peoples.</p>
+
+  <div class="influences-grid" id="influences-grid">
+    <!-- Loaded from API -->
+  </div>
+</section>
+
+<section class="timeline-section">
+  <div class="section">
+    <div class="section-eyebrow">The Journey</div>
+    <h2>A timeline of <em>flavor</em></h2>
+
+    <div class="timeline" id="timeline">
+      <!-- Loaded from API -->
+    </div>
+  </div>
+</section>
+
+<section class="feature-story">
+  <div class="feature-visual"></div>
+  <div class="feature-content">
+    <div class="section-eyebrow">A Story In One Dish</div>
+    <h2>The doubles <em>origin</em></h2>
+    <p>In the 1930s, Emamool Deen — better known as "Mamoo" — sold curried channa wrapped in fried bara on the streets of Princes Town. The story goes: a customer asked for two baras instead of one. He called out, "Double!"</p>
+    <blockquote>"Doubles" — born from a single word at a roadside stall, now eaten by every Trini at sunrise.</blockquote>
+    <p>Today, doubles is the unofficial national breakfast. It carries Indian indentured roots, Caribbean street-food spirit, and a name minted in pure Trinidadian creativity. One dish — the whole story.</p>
+  </div>
+</section>
+
+<section class="festivals-section">
+  <div class="section-eyebrow">Festivals & Food</div>
+  <h2>When the <em>kitchen</em> celebrates</h2>
+  <p class="section-intro">In T&amp;T, every major festival is a religion-spanning, neighborhood-wide feast. Hindu, Muslim, Christian, African — everyone brings a plate.</p>
+
+  <div class="festivals-grid">
+    <div class="festival-card carnival">
+      <div class="festival-icon">🎭</div>
+      <div>
+        <div class="festival-name">Carnival</div>
+        <div class="festival-foods">Corn soup at 4am, doubles after the road, pelau by the pan side. The fuel of the world's greatest street party.</div>
+      </div>
+    </div>
+    <div class="festival-card divali">
+      <div class="festival-icon">🪔</div>
+      <div>
+        <div class="festival-name">Divali</div>
+        <div class="festival-foods">Sweet rice (kheer), kurma, parsad, barfi, and seven-curry feasts served on sohari leaves. The festival of lights — and sweets.</div>
+      </div>
+    </div>
+    <div class="festival-card eid">
+      <div class="festival-icon">🌙</div>
+      <div>
+        <div class="festival-name">Eid-ul-Fitr</div>
+        <div class="festival-foods">Sawine — vermicelli, milk, cinnamon, almonds — shared from house to house. Biryani, paratha, and goat curry on every table.</div>
+      </div>
+    </div>
+    <div class="festival-card christmas">
+      <div class="festival-icon">🎄</div>
+      <div>
+        <div class="festival-name">Christmas</div>
+        <div class="festival-foods">Pastelles, ham, black cake, sorrel, ponche de crème. Parang music in the background, neighbors at the door.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Ready to <em>taste</em> the story?</h2>
+  <p>Every dish has a history. Browse our recipes and bring a piece of T&amp;T into your kitchen.</p>
+  <a href="/#dishes" class="btn btn-primary">Explore Dishes →</a>
+</section>
+
+<footer>
+  <div class="flag-strip">
+    <div class="red"></div>
+    <div class="white"></div>
+    <div class="black"></div>
+  </div>
+  <p>© 2026 TriniTastes · Made with 🌶️ and pride for T&amp;T</p>
+</footer>
+
+<script>
+  // Animate stat counters when scrolled into view
+  function animateStats() {
+    const stats = document.querySelectorAll('.stat-num');
+    stats.forEach(stat => {
+      const target = parseInt(stat.dataset.target);
+      const duration = 1500;
+      const start = performance.now();
+
+      function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(target * eased);
+        stat.textContent = current + (target === 500 ? '+' : '');
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateStats();
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(document.getElementById('stats-bar'));
+
+  // Load influences from API
+  async function loadInfluences() {
+    try {
+      const res = await fetch('/api/culture');
+      const data = await res.json();
+
+      // Render influences
+      const grid = document.getElementById('influences-grid');
+      grid.innerHTML = data.influences.map(inf => `
+        <div class="influence-card" style="--accent-color: ${inf.color}">
+          <span class="influence-flag">${inf.flag}</span>
+          <div class="influence-era">${inf.era}</div>
+          <div class="influence-name">${inf.name}</div>
+          <p class="influence-desc">${inf.description}</p>
+          <div class="influence-dishes">
+            ${inf.dishes.map(d => `<span class="dish-tag">${d}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      // Render timeline
+      const timeline = document.getElementById('timeline');
+      timeline.innerHTML = data.timeline.map(t => `
+        <div class="timeline-item">
+          <div class="timeline-year">${t.year}</div>
+          <div class="timeline-title">${t.title}</div>
+          <div class="timeline-desc">${t.description}</div>
+        </div>
+      `).join('');
+    } catch (err) {
+      console.error('Failed to load culture data:', err);
+    }
+  }
+
+  loadInfluences();
+</script>
+</body>
+</html>
